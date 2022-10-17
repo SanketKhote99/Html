@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment-1</title>
+</head>
+<style>
+        body{
+        padding: 0;
+        margin: 0;
+    }
+    
+    header img{
+        border-radius: 50%;
+        margin: 0 30px;
+        float: left;
+        height: 56px; 
+        width: 56px;
+
+    }
+
+
+    ul {
+        list-style-type: none;
+        margin: 3% 0 0 0;
+        padding: 8px 10px 8px 0;
+        border: 1px solid black;
+        overflow: hidden;
+    }
+    
+    li {
+        float: left;
+
+    }
+    
+    li a {
+        color: black;
+        padding: 8px 10px;
+        border-right: 1px solid black;
+        text-align: center;
+        text-decoration: none;
+      }
+      
+      .prev,
+      .next {
+        margin: 0 25%;
+        cursor: pointer;
+        position: absolute;
+        top: 55%;
+        padding: 16px;
+        color: white;
+        font-size: 20px;
+        border-radius: 0 3px 3px 0;
+      }
+      .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+      }
+
+    .prev:hover,
+    .next:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .mySlides{
+      position: fixed;
+      margin-left: 25%;
+      width: 100%;
+    }
+
+    .mySlides img {
+      width: 50%;
+    }
+</style>
+<body>
+    <!-- header -->
+
+    <header>
+        <img src="https://media-exp1.licdn.com/dms/image/C5603AQHO62hb1kDaQA/profile-displayphoto-shrink_400_400/0/1649937984739?e=1671667200&v=beta&t=Uz1NAA3Z-udJ2-simC6bf3E3ccJRIkVKVkoZ2UyITuo" alt="family logo">
+        <h1>Application name</h1>
+    </header>
+
+    <!-- Navbar -->
+        <ul class="menu">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Gallery</a></li>
+        </ul>
+
+    
+    
+    <!-- Hero section -->
+    <div class="container">
+        <div class="mySlides">
+          <img src="https://picsum.photos/536/354">
+        </div>
+      
+        <div class="mySlides">
+          <img src="https://picsum.photos/536/353">
+        </div>
+
+        <div class="mySlides">
+            <img src="https://picsum.photos/536/354">
+          </div>
+
+          <div class="mySlides">
+            <img src="https://picsum.photos/536/352">
+          </div>
+
+          <div class="mySlides">
+            <img src="https://picsum.photos/536/351">
+          </div>
+      
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+      
+      
+      </div>
+</body>
+<script>
+    let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("demo");
+  let captionText = document.getElementById("caption");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  captionText.innerHTML = dots[slideIndex-1].alt;
+}
+</script>
+</html>
